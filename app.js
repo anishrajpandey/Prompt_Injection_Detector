@@ -1,4 +1,4 @@
-// const API_KEY = "AIzaSyCS86QznFRGeukPMiYnxxejGquOVsTSp3Y";
+// const API_KEY = "";
 
 
 const PROMPTFOO_BASE_URL= "https://api.promptfoo.dev";
