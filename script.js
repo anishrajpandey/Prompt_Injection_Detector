@@ -60,7 +60,7 @@ async function isInjected(){
 }
 isInjected().then((response)=>{
   response?
-  btn1.classList.replace('bg-red-600'): btn1.classList.replace('bg-green-600');
+  btn1.classList.toggle('bg-white', 'bg-red-600'): btn1.classList.toggle('bg-white','bg-green-600');
   
 })
 
@@ -81,19 +81,19 @@ async function detectPII(){
     });
     let responseJson=await response.json();
   
-    btn2.classList.replace('bg-red-600');
+    btn2.classList.toggle('bg-white' ,'bg-white', 'bg-red-600');
 
     return {flagged: responseJson.results[0].flagged};
 
   }
   catch(error){
-    btn2.classList.replace('bg-green-600');
+    btn2.classList.toggle('bg-white','bg-green-600');
     return {flagged: true}; 
  }
 }
 detectPII().then((response)=>{
   response.flagged ?
-     btn1.classList.replace('bg-red-600'): btn1.classList.replace('bg-green-600');
+     btn1.classList.toggle('bg-white', 'bg-red-600'): btn1.classList.toggle('bg-white','bg-green-600');
   
 })
 
@@ -116,7 +116,7 @@ async function isHarmful(){
 
 }
 isHarmful().then((response)=>{
-  response?  btn3.classList.add('bg-green-600'): btn3.classList.add('bg-red-600');
+  response?  btn3.classList.add('bg-white','bg-green-600'): btn3.classList.add('bg-white', 'bg-red-600');
 })
 
 
