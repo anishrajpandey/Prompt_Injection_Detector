@@ -87,6 +87,7 @@ isInjected().then((response)=>{
   }
 
   APIcall(stringToTest)
+  
 
     
 
