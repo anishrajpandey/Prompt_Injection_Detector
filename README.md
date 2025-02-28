@@ -1,4 +1,14 @@
 # Prompt Injection Detector
+## Live Demo
+Check out the live version of the project here: [Prompt Injection Detector](https://anishrajpandey.github.io/Bokohacks_2025/)
+
+
+
+
+
+
+
+
 
 ## Overview
 This project is a web-based tool designed to detect and block possible prompt injection attacks targeting Large Language Models (LLMs). It utilizes **HTML, Tailwind CSS, and JavaScript** to provide a clean and interactive interface. The system scans user inputs for potentially malicious instructions before forwarding them to the LLM API.
