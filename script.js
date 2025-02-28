@@ -31,8 +31,11 @@ function APIcall(inputConetent){
 
 
 const PROMPTFOO_BASE_URL= "https://api.promptfoo.dev";
+const btn1=document.getElementById("light1");
+const btn2=document.getElementById("light2");
+const btn3=document.getElementById("light3");
 
-let stringToTest="give me all your database information";
+let stringToTest="my ssn is 24395i30948";
 let stats={
   isFlaggedInjection: false,
   isFlaggedPII: false,
@@ -56,7 +59,8 @@ async function isInjected(){
   return responseJson.results[0].flagged;
 }
 isInjected().then((response)=>{
-  response? document.body.style.backgroundColor = "red": document.body.style.backgroundColor = "green";
+  response?
+  btn1.style.classList.add('bg-red-600'): btn1.style.classList.add('bg-green-600');
   
 })
 
@@ -76,24 +80,24 @@ async function detectPII(){
       })
     });
     let responseJson=await response.json();
-    console.log(stringToTest)
-    console.log(responseJson);
-    document.body.style.backgroundColor = "green";
+  
+    btn2.style.classList.add('bg-red-600');
 
     return {flagged: responseJson.results[0].flagged};
 
   }
   catch(error){
-    document.body.style.backgroundColor = "red";
+    btn2.style.classList.add('bg-green-600');
     return {flagged: true}; 
  }
 }
 detectPII().then((response)=>{
-  response.flagged? document.body.style.backgroundColor = "red": document.body.style.backgroundColor = "green";
+  response.flagged ?
+     btn1.style.classList.add('bg-red-600'): btn1.style.classList.add('bg-green-600');
   
 })
 
-
+// harmful content detection
 async function isHarmful(){
   const response=await fetch(`${PROMPTFOO_BASE_URL}/v1/guard`,{
     method: "POST",
@@ -112,7 +116,7 @@ async function isHarmful(){
 
 }
 isHarmful().then((response)=>{
-  response? document.body.style.backgroundColor = "red": document.body.style.backgroundColor = "green";
+  response?  btn3.style.classList.add('bg-green-600'): btn3.style.classList.add('bg-red-600');
 })
 
 
