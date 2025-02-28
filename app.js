@@ -31,6 +31,29 @@ isInjected().then((response)=>{
   console.log(stats);
 })
 
+
+// pii detection
+async function detectPII(){
+  console.log(`${PROMPTFOO_BASE_URL}/v1/pii`);
+  
+  const response=await fetch(`${PROMPTFOO_BASE_URL}/v1/pii`,{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      input: stringToTest
+    })
+  });
+  let responseJson=await response.json();
+  console.log(stringToTest)
+  console.log(responseJson);
+  return responseJson.results[0];
+}
+
+
+
+
 // fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
 //   method: "POST",
 //   headers: {
