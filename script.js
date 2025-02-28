@@ -91,8 +91,8 @@ sendbutton.addEventListener("click", ()=>{
     if (response){
       btn1.style.backgroundColor= 'red'
       btn1.style.color= 'white'
-      btn1.innerHTML="Injection detected ⚠️"
-  
+      btn1.innerHTML="Injection detected ⚠️ !!! REQUEST NOT SENT "
+      document.getElementById('response').innerText= "Injection detected ⚠️ !!! REQUEST NOT SENT ";
   
   
     }
@@ -100,25 +100,34 @@ sendbutton.addEventListener("click", ()=>{
       btn1.style.backgroundColor='green';
        btn1.style.color= 'white'
       btn1.innerHTML="Prompt Safe ✅ "
+
+
+
+      //calling the API
+      fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyCS86QznFRGeukPMiYnxxejGquOVsTSp3Y", {
+        method: "POST" ,
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{ text: `${stringToTest}` }]
+          }],
+          generationConfig: {
+            maxOutputTokens: 200  
+          }
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        console.log(data["candidates"][0]["content"]["parts"][0]["text"])
+        document.getElementById('response').innerText=data["candidates"][0]["content"]["parts"][0]["text"];
+      })
+      .catch(error => console.error("Error:", error));
     }
   
-    // fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyCS86QznFRGeukPMiYnxxejGquOVsTSp3Y", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     contents: [{
-    //       parts: [{ text: `${stringToTest}` }]
-    //     }],
-    //     generationConfig: {
-    //       maxOutputTokens: 200  
-    //     }
-    //   })
-    // })
-    // .then(response => response.json())
-    // .then(data => console.log(data))
-    // .catch(error => console.error("Error:", error));
+    
   
       
   
