@@ -27,7 +27,8 @@ async function isInjected(){
   return responseJson.results[0].flagged;
 }
 isInjected().then((response)=>{
-  stats.isFlaggedInjection=response;
+  response? document.body.style.backgroundColor = "red": document.body.style.backgroundColor = "green";
+  
 })
 
 
@@ -59,7 +60,8 @@ async function detectPII(){
  }
 }
 detectPII().then((response)=>{
-  stats.isFlaggedPII=response.flagged;
+  response.flagged? document.body.style.backgroundColor = "red": document.body.style.backgroundColor = "green";
+  
 })
 
 
@@ -81,14 +83,8 @@ async function isHarmful(){
 
 }
 isHarmful().then((response)=>{
-  stats.isFlaggedHarmful=response.flagged;
-  if(stats.isFlaggedInjection || stats.isFlaggedPII || stats.isFlaggedHarmful){
-   
-    document.body.style.backgroundColor = "red";
-  }
-  else{
-    document.body.style.backgroundColor = "green";   
-  }
+  response? document.body.style.backgroundColor = "red": document.body.style.backgroundColor = "green";
+
   
 })
 
