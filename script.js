@@ -113,8 +113,6 @@ async function isHarmful(){
 }
 isHarmful().then((response)=>{
   response? document.body.style.backgroundColor = "red": document.body.style.backgroundColor = "green";
-
-  
 })
 
 
