@@ -53,9 +53,10 @@ This project is a web-based tool designed to detect and block possible prompt in
 - Improve UI/UX with better feedback mechanisms.
 
 ## Contributors
-- [Your Name]
-- [Hackathon Team Members]
-
+- Anish Raj Pandey
+- Oasis Pandey
+- Niraj Bhattarai
+  
 ## License
 This project is open-source and available under the [MIT License](LICENSE).
 
