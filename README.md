@@ -1,6 +1,5 @@
 # Prompt Injection Detector
-## Live Demo
-Check out the live version of the project here: [Prompt Injection Detector](https://anishrajpandey.github.io/Bokohacks_2025/)
+
 
 
 
